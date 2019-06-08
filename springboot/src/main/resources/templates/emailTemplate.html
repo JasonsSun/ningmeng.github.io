@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>注册激活</title>
+</head>
+<body>
+<form  id="active_form" method="get">
+<!--<input id="username" type="text" value="${username}" style="display: none">-->
+<!--<input id="uemail" type="text"   value="${activeEmail}" style="display: none">-->
+您好,这是激活邮件，您的用户名为：${username},您的激活码为：${code},请点击跳转并进行<a href="${url}?username=${username}&email=${activeEmail}">激活,</a> <font style="color: red">请在10分钟内完成激活！</font>若验证码失效，请重新获取！<br/>
+</form>
+</body>
+</html>

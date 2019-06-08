@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+    <!-- BEGIN META -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Custom Theme">
+    <!-- END META -->
+    
+    <!-- BEGIN SHORTCUT ICON -->
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <!-- END SHORTCUT ICON -->
+    <title>
+   激活邮箱
+    </title>
+    <!-- BEGIN STYLESHEET-->
+        <script src="../background/js/sweetalert2.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="../background/css/sweetalert2.min.css">
+		<link href="../background/css/bootstrap.min.css" rel="stylesheet"><!-- BOOTSTRAP CSS -->
+		<link href="../background/css/bootstrap-reset.css" rel="stylesheet"><!-- BOOTSTRAP CSS -->
+		<link href="../background/assets/font-awesome/css/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+		<link href="../background/css/style.css" rel="stylesheet"><!-- THEME BASIC CSS -->
+		<link href="../background/css/style-responsive.css" rel="stylesheet"><!-- THEME RESPONSIVE CSS -->
+    <!--[if lt IE 9]>
+<script src="../background/js/html5shiv.js">
+</script>
+<script src="../background/js/respond.min.js">
+</script>
+<![endif]-->
+     <!-- END STYLESHEET-->
+  </head>
+  <body class="login-screen">
+    <!-- BEGIN SECTION -->
+    <div class="container">
+      <form class="form-signin" th:action="@{/background/active}" method="post">
+        <h2 class="form-signin-heading">
+        邮箱激活
+        </h2>
+		<!-- LOGIN WRAPPER  -->
+        <div class="login-wrap">
+          <p style="color: red;"  hidden  id="info"th:text="${msg}">
+          <p style="color: red;"  hidden  id="state"th:text="${state}">
+          </p>
+         <input  type="text" id="username" name="username" th:value="${username}" style="display: none" />
+         <input  type="text" id="uemail" name="uemail"    th:value="${uemail}" style="display: none"/>
+          <label >邮箱验证码: <input style="width: 180px;height: 39px;font-size: 12px;padding: 10px;" type="text" name="activeCode"  autofocus /> </label>
+          <button id="oncheck" class="btn btn-lg btn-login btn-block" type="submit">
+            激活
+          </button>
+        </div>
+		<!-- END LOGIN WRAPPER -->
+      </form>
+    </div>
+    <!-- END SECTION -->
+    <!-- BEGIN JS -->
+    <script src="../background/js/jquery.js" ></script><!-- BASIC JQUERY LIB. JS -->
+	<script src="../background/js/bootstrap.min.js" ></script><!-- BOOTSTRAP JS -->
+    <!-- END JS -->
+  </body>
+<script type="text/javascript">
+
+
+    if(document.getElementById("info").innerHTML!=''||(document.getElementById("state").innerHTML!='success'&&document.getElementById("state").innerHTML!=''))
+    {
+
+        swal({
+            title:document.getElementById("info").innerHTML,
+            // text: '是否继续',
+            type: 'error',
+            confirmButtonText: '好的'
+        })
+    }
+    else if(document.getElementById("state").innerHTML!='success'&&document.getElementById("info").innerHTML!='')
+    {
+        swal({
+            title:document.getElementById("info").innerHTML,
+            // text: '是否继续',
+            type: 'success',
+            confirmButtonText: '好的'
+        })
+    }
+</script>
+</html>
+
